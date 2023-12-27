@@ -1,4 +1,5 @@
 import prisma from "@/lib/prisma";
+import { corsHeaders } from "@/lib/cors";
 import { NextResponse } from "next/server";
 
 interface BodyType {
@@ -25,9 +26,7 @@ export async function POST(request: Request) {
     });
     return new NextResponse(JSON.stringify(cfUser), {
       status: 200,
-      headers: {
-        "content-type": "application/json",
-      },
+      headers: corsHeaders,
     });
   } catch (err) {
     return new NextResponse("error registering cf id", { status: 500 });
