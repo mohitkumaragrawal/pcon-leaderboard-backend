@@ -2,6 +2,9 @@ import { corsHeaders } from "@/lib/cors";
 import prisma from "@/lib/prisma";
 import { NextResponse } from "next/server";
 
+export const dynamic = "force-dynamic";
+export const revalidate = 60; // 1 minute
+
 export async function GET() {
   try {
     const cfHandles = await prisma.cf_account.findMany();
