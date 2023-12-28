@@ -29,6 +29,9 @@ export async function POST(request: Request) {
       headers: corsHeaders,
     });
   } catch (err) {
-    return new NextResponse("error registering cf id", { status: 500 });
+    return new NextResponse("error registering cf id", {
+      status: 500,
+      headers: corsHeaders,
+    });
   }
 }
